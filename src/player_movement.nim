@@ -13,7 +13,7 @@ gdobj PlayerMovement of KinematicBody:
     var crouch_move_speed: float = 0.5   # soon...
     var run_move_speed: float = 2.0      # soon...
 
-    var gravity: float = 20.0     # gravity
+    var gravity: float = 15.0    # gravity
     var gravity_vec: Vector3      # gravity
     var jump_power: float = 5     # jump
     var mouse_sensitivity: float = 0.5    # mouse movement 
