@@ -31,25 +31,12 @@ gdobj PlayerMovement of KinematicBody:
         self.setPhysicsProcess(true)
 
     method input*(event : InputEvent) =
+        # If event is Mouse Motion
         if event of InputEventMouseMotion:
             let ev = event as InputEventMouseMotion
-            var rotation = self.rotation         # Error: 'rotation(self).y' cannot be assigned to
-            var head_rotation = self.head.rotation
-            head_rotation.x -= ev.relative.y / 8 * self.mouse_sensitivity 
-            rotation.y -= ev.relative.x / 8 * self.mouse_sensitivity
-
-            self.rotation = rotation
-            self.head.rotation  = head_rotation
+            self.rotateY(-ev.relative.x / 50 * self.mouse_sensitivity)
+            self.head.rotateX(-ev.relative.y / 50 * self.mouse_sensitivity)
             self.head.rotationDegrees = clamp(self.head.rotationDegrees , vec3(-85, 0,0) , vec3(85, 0,0))
-
-            #[Error: 'rotation(self).y' cannot be assigned to
-
-            let ev = event as InputEventMouseMotion
-            self.rotation.y = -ev.relative.x / 8 * self.mouse_sensitivity
-            self.head.rotation.x = -ev.relative.y / 8 * self.mouse_sensitivity
-            self.head.rotationDegrees = clamp(self.head.rotationDegrees , vec3(-85, 0,0) , vec3(85, 0,0))
-            ]#
-
 
 
     method physicsProcess*(delta: float64) =
