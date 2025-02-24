@@ -1,3 +1,4 @@
+# THIS IS OUTDATED
 # Godot nim FPS
 FPS Movement for godot and nim lib godot nim
 
